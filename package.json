@@ -1,0 +1,22 @@
+{
+  "name": "kanbender",
+  "description": "Bedrock Kanbanery Github Helper",
+  "author": "Benjamin Sternthal <bsternthal@mozill>",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">= 0.10.X",
+    "npm": ">= 1.2.x"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "irc": "0.3.6",
+    "nconf": "0.6.7",
+    "request": "2.33.0",
+    "express": "3.x",
+    "async": "0.2.10"
+  },
+  "repository": "",
+}
