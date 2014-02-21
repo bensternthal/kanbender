@@ -1,16 +1,26 @@
+'use strict';
+
 var express = require('express');
 var app = express();
 
-app.use(express.bodyParser());
+var github = require('./lib/github');
 
-app.get('/', function(req, res){
-  res.send('hello world');
-  console.log('here');
-});
+app.use(express.json());
+app.use(express.urlencoded());
 
-app.post('/', function(req, res) {
-  res.send('success');
-  console.log(req.body);
+app.post('/kanbender', function(req, res) {
+    res.send('success');
+
+    var bugs = github.getBugIDs(req.body.head_commit.message)
+
+    console.log(bugs);
+
+    //Bugs Found Proceed
+    if (bugs.length > 0) {
+        console.log(bugs);
+    }
 });
 
 app.listen(8000);
+
+
