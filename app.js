@@ -16,9 +16,9 @@ app.post('/kanbender', function(req, res) {
     console.log(bugs);
 
     //Bugs Found Proceed
-    if (bugs.length > 0) {
-        console.log(bugs);
-    }
+    // if (bugs.length > 0) {
+    //     console.log(bugs);
+    // }
 });
 
 app.listen(8000);
