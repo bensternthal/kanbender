@@ -17,12 +17,12 @@
     "express": "3.x",
     "irc": "0.3.6",
     "nconf": "0.6.7",
-    "request": "2.33.0",
+    "request": "2.33.0"
   },
   "licenses": [
     {
       "type": "apache2",
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
-  ],
+  ]
 }

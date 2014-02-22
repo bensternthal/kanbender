@@ -1,0 +1,13 @@
+{
+    "project_name": {
+        "bugzilla": {
+            "api_url": ""
+        },
+        "kanbanery": {
+            "api_token": "",
+            "auth_token": "",
+            "project_url": ""
+        }
+    }
+}
+
