@@ -6,7 +6,7 @@
         "kanbanery": {
             "api_token": "",
             "auth_token": "",
-            "project_url": ""
+            "project_url": "https://api-dev.bugzilla.mozilla.org/latest/"
         }
     }
 }
