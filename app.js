@@ -27,35 +27,43 @@ app.post('/kanbender/:project', function(req, res) {
     var bugs = github.getBugIDs(commits);
 
     if (bugs.length > 0) {
-      nimble.each(bugs, function (val) {
-        taskIsDone(val, project);
+      nimble.each(bugs, function (bugId) {
+        taskIsDone(bugId, project);
       });
     }
   }
 });
 
-function taskIsDone(id, project) {
-  // TODO - double check this works properly. I think there is an issue here with
-  // getting stomped - closure?
+function taskIsDone(bugId, project) {
+  bugzilla.getKanbanId(bugId, function(cardId) {
+    if (error) return errorHandler(error);
 
-  var kanbanCardId = null;
-
-  nimble.series([
-    function (callback) {
-      bugzilla.getKanbanId(id, function(error, kBId) {
-        if (error) return errorHandler(error);
-        kanbanCardId = kBId;
-        callback();
-      })
-    },
-    function (callback) {
-      kanbanery.updateCard(kanbanCardId, project, function(error) {
-        if (error) return errorHandler(error);
-        callback();
-      });
-    }
-  ]);
+    kanbanery.updateCard(cardId,project, function(cardId) {
+      if (error) return errorHandler(error);
+      console.log("and we are done");
+    });
+  });
 }
+
+
+  // var kanbanCardId = null;
+
+  // nimble.series([
+  //   function (callback) {
+  //     bugzilla.getKanbanId(id, function(error, kBId) {
+  //       if (error) return errorHandler(error);
+  //       kanbanCardId = kBId;
+  //       callback();
+  //     })
+  //   },
+  //   function (callback) {
+  //     kanbanery.updateCard(kanbanCardId, project, function(error) {
+  //       if (error) return errorHandler(error);
+  //       callback();
+  //     });
+  //   }
+  // ]);
+
 
 function errorHandler(error) {
   console.log('Error: ' + error);
