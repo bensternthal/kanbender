@@ -26,6 +26,7 @@ Copy local.json-dist to local.json and populate the values.
 // Todo detail all values here
 
 4. Run app:
+
    ```sh
    $ nodemon app.js
    ```
