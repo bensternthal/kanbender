@@ -1,6 +1,8 @@
 kanbender
 =========
 
+![kanbender](docs/bender-sm.png)
+
 Kanbanery Helper For Moving Merged Cards To Done Column
 
 How Kanbender works:
