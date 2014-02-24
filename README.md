@@ -72,7 +72,7 @@ URL of the bugzilla API, either prod or dev (landfill)
 
 Github Setup
 -----
-1. Add the URL under webhook `http://yourserver.co,/kanbender/PROJECT` remember
+1. Add the URL under webhook `http://yourserver.org/kanbender/PROJECT` remember
 project maps to whatever you entered into the json file.
 
 2. Select json payload.

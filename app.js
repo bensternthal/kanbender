@@ -35,6 +35,9 @@ app.post('/kanbender/:project', function(req, res) {
 });
 
 function taskIsDone(id, project) {
+  // TODO - double check this works properly. I think there is an issue here with
+  // getting stomped - closure?
+
   var kanbanCardId = null;
 
   nimble.series([
