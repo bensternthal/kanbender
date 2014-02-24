@@ -32,27 +32,35 @@ Setup
 3. Configure the app:
 Copy local.json-dist to local.json and populate the values.
 
-   `project_name` - The name of your project. This allows multiple github projects
-   to use the same kanbender instance. Project name is also used when setting up the
-   github webhook.
-
-   `kanbanery:api_token` - The API key for the user you want associated with updates.
-
-
-   `kanbanery:workspace_url` - The url of your workspace including API version: `https://WORKSPACE.kanbanery.com/api/v1/`
-
-   `kanbanery:project_id` - The ID of your project, found in URL: `https://project.kanbanery.com/projects/ID/board/`
-
-   `kanbanery:done_column_id` - The ID of the projects done column, can be found via this url `https://WORKSPACE.kanbanery.com/api/v1/projects/PROJECT_ID/columns.json`
-
-   `bugzilla:api_url` - URL of the bugzilla API, either prod or dev (landfill)
-
 
 4. Run app:
 
    ```sh
    $ nodemon app.js
    ```
+
+Configuration
+-----
+___kanbanery:project_name___
+The name of your project. This allows multiple github projects
+to use the same kanbender instance. Project name is also used when setting up the
+github webhook.
+
+___kanbanery:api_token___
+The API key for the user you want associated with updates.
+
+
+___kanbanery:workspace_url___
+The url of your workspace including API version: `https://WORKSPACE.kanbanery.com/api/v1/`
+
+___kanbanery:project_id___
+The ID of your project, found in URL: `https://project.kanbanery.com/projects/ID/board/`
+
+___kanbanery:done_column_id___
+The ID of the projects done column, can be found via this url `https://WORKSPACE.kanbanery.com/api/v1/projects/PROJECT_ID/columns.json`
+
+___bugzilla:api_url___
+URL of the bugzilla API, either prod or dev (landfill)
 
 Github Setup
 -----
