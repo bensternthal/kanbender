@@ -40,7 +40,7 @@ function taskIsDone(bugId, project) {
 
     kanbanery.updateCard(cardId,project, function(error, cardId) {
       if (error) return errorHandler(error);
-      console.log("moved: " cardId);
+      console.log("moved: " + cardId);
     });
   });
 }
