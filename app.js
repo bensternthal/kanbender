@@ -35,12 +35,12 @@ app.post('/kanbender/:project', function(req, res) {
 });
 
 function taskIsDone(bugId, project) {
-  bugzilla.getKanbanId(bugId, function(cardId) {
+  bugzilla.getKanbanId(bugId, function(error, cardId) {
     if (error) return errorHandler(error);
 
-    kanbanery.updateCard(cardId,project, function(cardId) {
+    kanbanery.updateCard(cardId,project, function(error, cardId) {
       if (error) return errorHandler(error);
-      console.log("and we are done");
+      console.log("moved: " cardId);
     });
   });
 }
