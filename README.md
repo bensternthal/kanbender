@@ -3,7 +3,15 @@ kanbender
 
 ![kanbender](docs/bender-sm.png)
 
-Kanbanery Helper For Moving Merged Cards To Done Column
+Kanbanery Helper For Moving Merged Kanban Cards To Done Column
+
+Kanbender supports a workflow used on some Mozilla WebProd projects. On these
+projects most kanban cards have a bug in bugzilla. Bugs are associated with
+cards by adding the kanban card ID to the whiteboard field.
+Previously when a bug was merged in github to master, the developer would
+have to remember to move the card to done.
+
+Kanbender does this for you.
 
 How Kanbender works:
 
