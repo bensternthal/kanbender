@@ -41,25 +41,31 @@ Copy local.json-dist to local.json and populate the values.
 
 Configuration
 -----
-___kanbanery:project_name___
+__kanbanery:project\_name__
+
 The name of your project. This allows multiple github projects
 to use the same kanbender instance. Project name is also used when setting up the
 github webhook.
 
-___kanbanery:api_token___
+__kanbanery:api\_token__
+
 The API key for the user you want associated with updates.
 
 
-___kanbanery:workspace_url___
+__kanbanery:workspace\_url__
+
 The url of your workspace including API version: `https://WORKSPACE.kanbanery.com/api/v1/`
 
-___kanbanery:project_id___
+__kanbanery:project\_id__
+
 The ID of your project, found in URL: `https://project.kanbanery.com/projects/ID/board/`
 
-___kanbanery:done_column_id___
+__kanbanery:done\_column\_id__
+
 The ID of the projects done column, can be found via this url `https://WORKSPACE.kanbanery.com/api/v1/projects/PROJECT_ID/columns.json`
 
-___bugzilla:api_url___
+__bugzilla:api\_url__
+
 URL of the bugzilla API, either prod or dev (landfill)
 
 Github Setup
