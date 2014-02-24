@@ -2,7 +2,7 @@
     "project_name": {
         "kanbanery": {
             "api_token": "",
-            "project_url": "",
+            "workspace_url": "",
             "project_id": "",
             "done_column_id": ""
         }
