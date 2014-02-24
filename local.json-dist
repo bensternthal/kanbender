@@ -1,13 +1,13 @@
 {
     "project_name": {
-        "bugzilla": {
-            "api_url": ""
-        },
         "kanbanery": {
             "api_token": "",
-            "auth_token": "",
-            "project_url": "https://api-dev.bugzilla.mozilla.org/latest/"
+            "project_url": "",
+            "project_id": "",
+            "done_column_id": ""
         }
+    },
+    "bugzilla": {
+        "api_url": ""
     }
 }
-

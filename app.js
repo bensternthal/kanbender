@@ -57,6 +57,3 @@ function taskIsDone(id, project) {
 function errorHandler(error) {
   console.log('Error: ' + error);
 }
-
-
-
