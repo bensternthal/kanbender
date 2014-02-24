@@ -43,11 +43,11 @@ Copy local.json-dist to local.json and populate the values.
 
 Configuration
 -----
-__kanbanery:project\_name__
+__project\_name__
 
 The name of your project. This allows multiple github projects
 to use the same kanbender instance. Project name is also used when setting up the
-github webhook.
+github webhook. Each project is expected to have its own set of kanbanery options, see below.
 
 __kanbanery:api\_token__
 
