@@ -12,10 +12,9 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
-    "async": "0.2.10",
+    "nimble": "0.0.2",
     "bz": "0.2.5",
     "express": "3.x",
-    "irc": "0.3.6",
     "nconf": "0.6.7",
     "request": "2.33.0"
   },

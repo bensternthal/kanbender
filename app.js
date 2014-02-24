@@ -1,7 +1,8 @@
 'use strict';
 
-var nconf = require('nconf');
 var express = require('express');
+var nimble = require('nimble');
+var nconf = require('nconf');
 var app = express();
 
 var github = require('./lib/github');
@@ -15,33 +16,47 @@ nconf.argv().env().file({ file: 'local.json' });
 
 app.listen(8000);
 
-// Main loop - project maps to settings file
+// Main loop
 app.post('/kanbender/:project', function(req, res) {
   res.send('success');
   var project = req.params.project;
   var commits = req.body.commits;
 
-  // Bail if no commit message
+  // Bail if no commit message, loop through found bugs
   if (req.body.commits) {
     var bugs = github.getBugIDs(commits);
-    // Bugs Found Proceed
+
     if (bugs.length > 0) {
-
-      // For each bug do all the things
-      for(var b = 0; b < bugs.length; b++) {
-        // Look up kb tags from Bugzilla
-
-        bugzilla.getKanbanId(bugs[b], function(id) {
-          // Move any bugs with kb id populated
-
-          kanbanery.updateCard(id,project, function(id) {
-            console.log("and we are done");
-          });
-        });
-      }
+      nimble.each(bugs, function (val) {
+        taskIsDone(val, project);
+      });
     }
   }
-
 });
+
+function taskIsDone(id, project) {
+  var kanbanCardId = null;
+
+  nimble.series([
+    function (callback) {
+      bugzilla.getKanbanId(id, function(error, kBId) {
+        if (error) return errorHandler(error);
+        kanbanCardId = kBId;
+        callback();
+      })
+    },
+    function (callback) {
+      kanbanery.updateCard(kanbanCardId, project, function(error) {
+        if (error) return errorHandler(error);
+        callback();
+      });
+    }
+  ]);
+}
+
+function errorHandler(error) {
+  console.log('Error: ' + error);
+}
+
 
 
