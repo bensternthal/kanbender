@@ -42,12 +42,12 @@ function taskIsDone(bugId, project) {
     // Move card
     kanbanery.updateCard(cardId,project, function(error, cardId) {
       if (error) return errorHandler(error);
-      //console.log("moved: " + cardId);
+      console.log('Card Moved: ' + cardId);
     });
   });
 }
 
 
 function errorHandler(error) {
-  console.log('Error: ' + error);
+  console.error('Error: ' + error);
 }
