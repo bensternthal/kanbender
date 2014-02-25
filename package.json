@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "nodemon app.js",
-    "server" "forever start -l ./logs/forever.log -o ./logs/out.log -e ./logs/err.log app.js"
+    "server" "forever start -o ./logs/out.log -e ./logs/err.log -a app.js"
   },
   "dependencies": {
     "nimble": "0.0.2",
