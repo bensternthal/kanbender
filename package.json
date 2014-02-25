@@ -1,7 +1,7 @@
 {
   "name": "kanbender",
   "description": "Bedrock Kanbanery Github Helper",
-  "author": "Benjamin Sternthal <bsternthal@mozill>",
+  "author": "Benjamin Sternthal <ben@devpatch.com>",
   "version": "0.0.1",
   "private": true,
   "engines": {
