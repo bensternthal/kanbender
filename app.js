@@ -22,7 +22,7 @@ app.post('/kanbender/:project', function(req, res) {
   var project = req.params.project;
   var commits = req.body.commits;
 
-  // Bail if no commit message, loop through found bugs
+  // Bail if no commit message(s), loop through found bugs
   if (req.body.commits) {
     var bugs = github.getBugIDs(commits);
 
@@ -35,34 +35,17 @@ app.post('/kanbender/:project', function(req, res) {
 });
 
 function taskIsDone(bugId, project) {
+  // Get card id from whiteboard in bugzilla
   bugzilla.getKanbanId(bugId, function(error, cardId) {
     if (error) return errorHandler(error);
 
+    // Move card
     kanbanery.updateCard(cardId,project, function(error, cardId) {
       if (error) return errorHandler(error);
-      console.log("moved: " + cardId);
+      //console.log("moved: " + cardId);
     });
   });
 }
-
-
-  // var kanbanCardId = null;
-
-  // nimble.series([
-  //   function (callback) {
-  //     bugzilla.getKanbanId(id, function(error, kBId) {
-  //       if (error) return errorHandler(error);
-  //       kanbanCardId = kBId;
-  //       callback();
-  //     })
-  //   },
-  //   function (callback) {
-  //     kanbanery.updateCard(kanbanCardId, project, function(error) {
-  //       if (error) return errorHandler(error);
-  //       callback();
-  //     });
-  //   }
-  // ]);
 
 
 function errorHandler(error) {
