@@ -18,9 +18,10 @@ How Kanbender works:
 1. On github you add kanbender as a webhook.
 2. On merge kanbender gets and parses the commit messages looking for bug id's
 that follow the same pattern as the bugzilla service hook.
-3. Each bug found is then looked up in bugzilla, the whiteboard is examined for a
+3. Note kanbender only pays attention to pushes on the `refs/heads/master` branch
+4. Each bug found is then looked up in bugzilla, the whiteboard is examined for a
 kanbanery card ID matching the pattern [kb=xxxxxx].
-4. Any kanban cards found are moved to the done column.
+5. Any kanban cards found are moved to the done column.
 
 
 Setup
