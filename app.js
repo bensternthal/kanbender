@@ -30,9 +30,8 @@ app.post('/kanbender/:project', function(req, res) {
   if(branch != "refs/heads/master") return errorHandler("Commit Not To Master: " + branch);
 
   // Bail if no commit message(s), loop through found bugs
-  if (req.body.commits) {
+  if (commits) {
     var bugs = github.getBugIDs(commits);
-
     if (bugs.length > 0) {
       nimble.each(bugs, function (bugId) {
         taskIsDone(bugId, project);
