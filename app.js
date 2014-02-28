@@ -24,20 +24,20 @@ app.post('/kanbender/:project', function(req, res) {
   var commits = req.body.commits;
   var branch = req.body.ref;
 
-  //Bail if commit is not to master - watching this is mostly for debugging
-  // Todo move this and the commit check into github lib
+  // Bail of branch is not master or if there are no commits
+  if(branch != "refs/heads/master")
+    return errorHandler("Commit Not To Master: " + branch);
 
-  if(branch != "refs/heads/master") return errorHandler("Commit Not To Master: " + branch);
+  if(!commits)
+    return errorHandler("No commits");
 
-  // Bail if no commit message(s), loop through found bugs
-  if (commits) {
-    var bugs = github.getBugIDs(commits);
-    if (bugs.length > 0) {
-      nimble.each(bugs, function (bugId) {
-        taskIsDone(bugId, project);
-      });
-    }
+  var bugs = github.getBugIDs(commits);
+  if (bugs.length > 0) {
+    nimble.each(bugs, function (bugId) {
+      taskIsDone(bugId, project);
+    });
   }
+
 });
 
 function taskIsDone(bugId, project) {
@@ -46,7 +46,7 @@ function taskIsDone(bugId, project) {
     if (error) return errorHandler(error);
 
     // Move card
-    kanbanery.testUpdateCard(cardId,project, function(error, cardId) {
+    kanbanery.updateCard(cardId,project, function(error, cardId) {
       if (error) return errorHandler(error);
       console.log('Card Moved: ' + cardId);
     });
