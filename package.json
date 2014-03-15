@@ -15,7 +15,7 @@
   "dependencies": {
     "nimble": "0.0.2",
     "bz": "0.2.5",
-    "express": "3.x",
+    "express": "3.5.0",
     "nconf": "0.6.7",
     "request": "2.33.0"
   },
