@@ -1,5 +1,7 @@
 'use strict';
 
+require('console-stamp')(console, 'isoDateTime');
+
 var express = require('express');
 var nimble = require('nimble');
 var nconf = require('nconf');
@@ -45,8 +47,8 @@ function taskIsDone(bugId, project) {
   bugzilla.getKanbanId(bugId, function(error, cardId) {
     if (error) return errorHandler(error);
 
-    // Move card
-    kanbanery.updateCard(cardId,project, function(error, cardId) {
+    // Move card: testing? use testUpdateCard
+    kanbanery.testUpdateCard(cardId,project, function(error, cardId) {
       if (error) return errorHandler(error);
       console.log('Card Moved: ' + cardId);
     });
