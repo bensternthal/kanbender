@@ -48,7 +48,7 @@ function taskIsDone(bugId, project) {
     if (error) return errorHandler(error);
 
     // Move card: testing? use testUpdateCard
-    kanbanery.testUpdateCard(cardId,project, function(error, cardId) {
+    kanbanery.updateCard(cardId,project, function(error, cardId) {
       if (error) return errorHandler(error);
       console.log('Card Moved: ' + cardId);
     });
