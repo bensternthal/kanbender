@@ -1,6 +1,6 @@
 'use strict';
 
-require('console-stamp')(console, 'isoDateTime');
+//require('console-stamp')(console, 'isoDateTime');
 
 var express = require('express');
 var nimble = require('nimble');
