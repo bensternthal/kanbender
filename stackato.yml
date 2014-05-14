@@ -1,0 +1,14 @@
+name: kanbender-bsternth
+description: WebProd Kanbanery Helper For Moving Merged Kanban Cards To Done Column
+framework:
+  type: node
+mem: 36M
+min_version:
+  client: 1.4.3
+processes:
+  web: forever start -o ./logs/out.log -e ./logs/err.log -a app.js
+ignores:
+  - .git
+  - local.json*
+  - Procfile
+  - node_modules
