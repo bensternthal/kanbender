@@ -9,7 +9,7 @@ var github = require('./lib/github');
 var bugzilla = require('./lib/bugzilla');
 var kanbanery = require('./lib/kanbanery');
 
-require('console-stamp')(console, 'isoDateTime');
+require('log-timestamp');
 
 app.use(express.json());
 app.use(express.urlencoded());
