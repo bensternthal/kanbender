@@ -1,7 +1,5 @@
 'use strict';
 
-//require('console-stamp')(console, 'isoDateTime');
-
 var express = require('express');
 var nimble = require('nimble');
 var nconf = require('nconf');
@@ -10,6 +8,8 @@ var app = express();
 var github = require('./lib/github');
 var bugzilla = require('./lib/bugzilla');
 var kanbanery = require('./lib/kanbanery');
+
+require('console-stamp')(console, 'isoDateTime');
 
 app.use(express.json());
 app.use(express.urlencoded());
