@@ -1,0 +1,9 @@
+ /home/bsternth/dev/kanbender/logs/* {
+  rotate 5
+  daily
+  copytruncate
+  missingok
+  notifempty
+  dateext
+  dateformat %Y-%m-%d.
+}
