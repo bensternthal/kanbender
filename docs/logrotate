@@ -1,9 +1,7 @@
  /home/bsternth/dev/kanbender/logs/* {
   rotate 5
+  size 1k
   daily
   copytruncate
   missingok
-  notifempty
-  dateext
-  dateformat %Y-%m-%d.
 }
