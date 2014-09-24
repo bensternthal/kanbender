@@ -1,4 +1,11 @@
- /home/bsternth/dev/kanbender/logs/* {
+home/bsternth/dev/kanbender/logs/out.log {
+  rotate 5
+  daily
+  copytruncate
+  missingok
+}
+
+/home/bsternth/dev/kanbender/logs/err.log {
   rotate 5
   daily
   copytruncate
